@@ -8,9 +8,14 @@ using namespace tinyxml2;
 	#define XMLCheckResult(a_eResult) if (a_eResult != XML_SUCCESS) { printf("Error: %i\n", a_eResult); return a_eResult; }
 #endif
 
-int main()
+int main(int argc, char** args)
 {
-    std::string filter_string = "person1";
+    if(argc != 2)
+    {
+        std::cerr << "give filterID as argument!\n";
+    }
+
+    std::string filter_string = args[1];
 	XMLDocument doc;
     std::list<XMLElement*> to_delete;
 
